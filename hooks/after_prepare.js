@@ -35,12 +35,13 @@ var name = getValue(config, "name")
 
 if (directoryExists("platforms/ios")) {
   var paths = ["GoogleService-Info.plist", "platforms/ios/www/GoogleService-Info.plist"];
+  var iosResourcesPath = "platforms/ios/" + name + "/Resources/GoogleService-Info.plist";
 
   for (var i = 0; i < paths.length; i++) {
-    if (fileExists(paths[i])) {
+    if (fileExists(paths[i]) && fileExists(iosResourcesPath)) {
       try {
         var contents = fs.readFileSync(paths[i]).toString();
-        fs.writeFileSync("platforms/ios/" + name + "/Resources/GoogleService-Info.plist", contents)
+        fs.writeFileSync(iosResourcesPath, contents)
       } catch(err) {
         process.stdout.write(err);
       }
