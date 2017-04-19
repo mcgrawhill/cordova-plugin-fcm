@@ -33,7 +33,7 @@ public class FCMPluginActivity extends Activity {
 			Log.d(TAG, "==> USER TAPPED NOTFICATION");
 			data.put("wasTapped", true);
 			for (String key : getIntent().getExtras().keySet()) {
-                String value = getIntent().getExtras().getString(key);
+                String value = String.valueOf(getIntent().getExtras().get(key));
                 Log.d(TAG, "\tKey: " + key + " Value: " + value);
 				data.put(key, value);
             }
