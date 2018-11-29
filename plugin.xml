@@ -60,6 +60,8 @@
             </feature>
         </config-file>
 
+        <framework src="com.google.firebase:firebase-core:+" />
+        <framework src="com.google.firebase:firebase-messaging:+" />
         <framework src="src/android/FCMPlugin.gradle" custom="true" type="gradleReference"/>
 
         <source-file src="src/android/FCMPlugin.java" target-dir="src/com/gae/scaffolder/plugin"/>
